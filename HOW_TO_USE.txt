@@ -1,0 +1,108 @@
+================================================================================
+                    CREDIT DISPUTE TOOL - QUICK GUIDE
+================================================================================
+
+FIRST TIME SETUP (One Time Only):
+================================================================================
+
+Windows:
+--------
+Open Command Prompt as Administrator, then:
+    pip install -r requirements.txt
+
+Ubuntu/Linux/macOS:
+------------------
+Open Terminal, then:
+    pip3 install -r requirements.txt
+
+================================================================================
+
+HOW TO START THE PROGRAM:
+================================================================================
+
+Windows:
+--------
+1. Double-click run.bat
+   OR
+2. Open Command Prompt, type: python bank_app.py
+
+Ubuntu/Linux:
+------------
+1. Open Terminal
+2. Type: python3 bank_app.py
+
+macOS:
+------
+1. Open Terminal
+2. Type: python3 bank_app.py
+
+================================================================================
+
+TO ADD A CUSTOMER DISPUTE:
+================================================================================
+1. Type the customer's information into the form
+2. Click "Add Another Dispute"
+3. Repeat for each customer
+
+================================================================================
+
+TO GENERATE THE METRO 2 FILE:
+================================================================================
+1. Click "Browse" to choose where to save the file
+2. Click "Generate Metro 2 File"
+3. The file will be saved to your chosen location
+4. Upload this file to the credit bureau portal
+
+================================================================================
+
+FORM FIELDS:
+================================================================================
+Full Name:        Customer's legal name
+SSN:              9-digit Social Security number (no dashes)
+DOB:              YYYYMMDD format (e.g., 19850315)
+Address:          Street address
+City:             City name
+State:            2-letter state code (e.g., IL, CA, NY)
+ZIP:              5 or 9-digit ZIP code
+Account Number:   Customer's account number
+Credit Limit:     Maximum credit amount in dollars
+Current Balance:  Current amount owed
+Dispute Type:     Select from dropdown:
+                  - 01 = Paid in full
+                  - 02 = Never late
+                  - 03 = Not my account
+                  - 04 = Balance incorrect
+Effective Date:   Date dispute is being filed (YYYYMMDD)
+
+================================================================================
+
+TROUBLESHOOTING:
+================================================================================
+
+"python3 not found" on Windows:
+    Use "python" instead of "python3"
+
+"tkinter not found" on Ubuntu:
+    Run: sudo apt install python3-tk
+
+"pip3 not found":
+    Ubuntu: sudo apt install python3-pip
+    Windows: Reinstall Python and check "Add to PATH"
+
+File won't save:
+    Make sure you have permission to write to the selected folder
+
+================================================================================
+
+================================================================================
+PRICING
+================================================================================
+
+Free for internal use under MIT License.
+
+Commercial license: $0.20 per Metro 2 file (5 files = $1.00)
+
+Includes: Email support, audit logging, compliance documentation.
+
+Contact: support@yourdomain.com
+================================================================================

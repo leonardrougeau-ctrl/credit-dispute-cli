@@ -1,0 +1,3 @@
+metro2_id,portfolio_type,account_type,account_number,customer_name,ssn,date_of_birth,address,city,state,zip,date_opened,date_closed,last_payment_date,credit_limit,current_balance,amount_past_due,scheduled_payment,payment_rating,payment_history_24,date_of_first_delinq,compliance_code,dispute_effective_date
+3,10,4,X1234,JOHN DOE,123456789,19850315,123 MAIN ST,CHICAGO,IL,60601,20200115,,20250201,5000,1234,0,150,0,000000000000000000000000,,XD,20250315
+3,01,1,Y5678,JANE SMITH,987654321,19901020,456 OAK AVE,LOS ANGELES,CA,90001,20190310,20250301,20250115,10000,0,0,300,0,000000000000000000000000,20241201,XD,20250315
