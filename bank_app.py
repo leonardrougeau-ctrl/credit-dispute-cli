@@ -96,7 +96,7 @@ class DisputeApp:
         label = tk.Label(reminder, text=f"Trial Period Active", font=('Arial', 14, 'bold'))
         label.pack(pady=20)
         
-        msg = tk.Label(reminder, text=f"You have {self.trial_days_left} days remaining in your free trial.\n\nAfter {TRIAL_DAYS} days, you will need to purchase a commercial license.\n\nContact: support@yourdomain.com")
+        msg = tk.Label(reminder, text=f"You have {self.trial_days_left} days remaining in your free trial.\n\nAfter {TRIAL_DAYS} days, you will need to purchase a commercial license.\n\nContact: contact@clearwatercodes.com")
         msg.pack(pady=10)
         
         ok_btn = tk.Button(reminder, text="OK", command=reminder.destroy)
@@ -336,7 +336,7 @@ class LicenseScreen:
         title.pack(pady=30)
         
         # Message
-        msg = tk.Label(self.root, text="Your 6-month free trial has ended.\n\nPlease purchase a commercial license to continue using this tool.\n\nContact: support@yourdomain.com", 
+        msg = tk.Label(self.root, text="Your 6-month free trial has ended.\n\nPlease purchase a commercial license to continue using this tool.\n\nContact: contact@clearwatercodes.com", 
                       bg='#f0f0f0', justify='center')
         msg.pack(pady=20)
         

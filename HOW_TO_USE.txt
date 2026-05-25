@@ -104,5 +104,5 @@ Commercial license: $0.20 per Metro 2 file (5 files = $1.00)
 
 Includes: Email support, audit logging, compliance documentation.
 
-Contact: support@yourdomain.com
+Contact: contact@clearwatercodes.com
 ================================================================================

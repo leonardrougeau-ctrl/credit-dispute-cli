@@ -31,7 +31,7 @@ Generates credit bureau-ready Metro 2 dispute files from a simple form.
 | Audit logging | Included |
 | Compliance documentation | Included |
 
-**Contact:** support@yourdomain.com
+**Contact:** contact@clearwatercodes.com
 
 ## Requirements
 

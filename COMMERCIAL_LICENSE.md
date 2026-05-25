@@ -21,7 +21,7 @@
 
 ## How to Pay
 
-1. Email support@yourdomain.com with your bank name and estimated volume
+1. Email contact@clearwatercodes.com with your bank name and estimated volume
 2. Sign the commercial license agreement
 3. Receive your license key
 4. Enter the license key in `bank_app.py` under Settings
@@ -37,8 +37,8 @@
 
 ## Contact
 
-**Sales:** sales@yourdomain.com
-**Support:** support@yourdomain.com
+**Sales:** contact@clearwatercodes.com
+**Support:** contact@clearwatercodes.com
 
 ## Payment Terms
 
@@ -77,9 +77,9 @@
 
 ### Payment Contact
 
-- Invoicing questions: billing@yourdomain.com
-- Payment remittance: payments@yourdomain.com
-- Late payment arrangements: collections@yourdomain.com
+- Invoicing questions: contact@clearwatercodes.com
+- Payment remittance: contact@clearwatercodes.com
+- Late payment arrangements: contact@clearwatercodes.com
 
 
 ## Payment Terms
