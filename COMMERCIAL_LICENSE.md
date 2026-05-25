@@ -39,3 +39,87 @@
 
 **Sales:** sales@yourdomain.com
 **Support:** support@yourdomain.com
+
+## Payment Terms
+
+### Net 30
+
+- Monthly invoices sent within 5 business days after month end
+- Payment due within 30 days of invoice date
+- No interest for on-time payments
+- Late payments: 1.5% monthly interest (18% APR)
+
+### Payment Methods
+
+| Method | Accepted | Processing Fee |
+|:---|:---|:---|
+| ACH / Wire Transfer | ✅ Yes | None |
+| Check (mail) | ✅ Yes | None |
+| Credit Card | ✅ Yes | 3% |
+| PayPal | ✅ Yes | 3.5% |
+
+### Invoicing Schedule
+
+| Event | Timing |
+|:---|:---|
+| CFPB data pulled | 1st-3rd of each month |
+| Invoice generated | 5th of each month |
+| Invoice sent | 5th of each month |
+| Payment due | 30 days after invoice date (Net 30) |
+
+### Sample Invoice Calculation
+
+| Bank | Monthly Complaints | Rate | Total Due |
+|:---|:---|:---|:---|
+| First National Bank | 47 | $0.20 | $9.40 |
+| City Bank | 123 | $0.20 | $24.60 |
+| Regional Credit Union | 8 | $0.20 | $1.60 |
+
+### Payment Contact
+
+- Invoicing questions: billing@yourdomain.com
+- Payment remittance: payments@yourdomain.com
+- Late payment arrangements: collections@yourdomain.com
+
+
+## Payment Terms
+
+### Net 30
+
+- Monthly invoices sent within 5 business days after month end
+- Payment due within 30 days of invoice date
+- No interest for on-time payments
+- Late payments: 1.5% monthly interest (18% APR)
+
+### Payment Methods
+
+| Method | Accepted | Processing Fee |
+|:---|:---|:---|
+| ACH / Wire Transfer | ✅ Yes | None |
+| Check (mail) | ✅ Yes | None |
+| Credit Card | ✅ Yes | 3% |
+| PayPal | ✅ Yes | 3.5% |
+
+### Invoicing Schedule
+
+| Event | Timing |
+|:---|:---|
+| CFPB data pulled | 1st-3rd of each month |
+| Invoice generated | 5th of each month |
+| Invoice sent | 5th of each month |
+| Payment due | 30 days after invoice date (Net 30) |
+
+### Sample Invoice Calculation
+
+| Bank | Monthly Complaints | Rate | Total Due |
+|:---|:---|:---|:---|
+| First National Bank | 47 | $0.20 | $9.40 |
+| City Bank | 123 | $0.20 | $24.60 |
+| Regional Credit Union | 8 | $0.20 | $1.60 |
+
+### Payment Contact
+
+- Invoicing questions: contact@clearwatercodes.com  
+- Payment remittance: contact@clearwatercodes.com  
+- Late payment arrangements: contact@clearwatercodes.com  
+
