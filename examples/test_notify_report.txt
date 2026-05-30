@@ -1,0 +1,22 @@
+Credit Dispute Report
+========================================
+Bank name: Bank Customer
+Date generated: 2026-05-29 17:28:54
+Total disputes: 2
+
+Dispute 1
+Customer name: Jane Consumer
+Account number: ACCT-1001
+Dispute type: Never late
+Effective date: 2026-05-29
+Current balance: $2,500.00
+Dispute status: Pending review
+----------------------------------------
+Dispute 2
+Customer name: Jane Consumer
+Account number: ACCT-1001
+Dispute type: Not my account
+Effective date: 2026-05-29
+Current balance: $2,500.00
+Dispute status: Pending review
+----------------------------------------

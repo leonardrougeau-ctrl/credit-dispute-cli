@@ -1,2 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+*.so
+*.egg
+*.egg-info/
+
+# Generated files
+output*
+*.dat
+*.csv
+*.log
 trial_status.json
 license.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

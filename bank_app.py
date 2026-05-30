@@ -22,6 +22,9 @@ TRIAL_DAYS = 180  # 6 months trial
 
 def check_trial_status():
     """Check if trial period has expired. Returns (is_valid, days_remaining, message)"""
+    if os.getenv("DEV_MODE", "").strip().lower() == "true":
+        return True, TRIAL_DAYS, "Developer mode enabled: 180-day trial bypassed."
+
     trial_file = "trial_status.json"
     
     # If trial file doesn't exist, this is first run
