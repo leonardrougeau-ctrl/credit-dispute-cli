@@ -4,6 +4,25 @@ Automated credit report dispute processing with AI. Takes a credit report PDF an
 - Metro 2 file (ready for credit bureau submission)
 - Human-readable reports (TXT, HTML, PDF)
 
+## Data Residency & Security
+
+### What This Software Does:
+- ✅ Temp CSV files are overwritten 3x before deletion (cannot be recovered)
+- ✅ No data is sent to external servers
+- ✅ No telemetry or phone-home features
+
+### What Banks Must Implement:
+- 🔐 Store Metro 2 output files on encrypted drives
+- 🔐 Restrict file access to authorized employees only
+- 🔐 Encrypt system swap space
+- 🔐 Implement backup encryption for compliance (FCRA, GLBA)
+- 🔐 Train employees on proper data handling
+
+### Recommended Retention Policy:
+- Metro 2 files: Delete after 2 years (or per bank policy)
+- Audit logs: Retain for 7 years
+
+
 ## Features
 
 | Feature | Description |

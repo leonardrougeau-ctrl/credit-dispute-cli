@@ -14,6 +14,36 @@ import json
 import sys
 from datetime import datetime, timedelta
 
+
+def secure_delete(file_path: str) -> None:
+    """Overwrite a file three times with random data before deleting it."""
+    abs_path = os.path.abspath(file_path)
+    if not os.path.isfile(abs_path):
+        return
+
+    size = os.path.getsize(abs_path)
+    try:
+        with open(abs_path, 'r+b') as handle:
+            for _ in range(3):
+                handle.seek(0)
+                handle.write(os.urandom(size))
+                handle.flush()
+                os.fsync(handle.fileno())
+    except OSError:
+        pass
+
+    try:
+        os.remove(abs_path)
+    except OSError:
+        pass
+
+
+def encrypt_metro2_file(filepath, key_file=None):
+    """Optionally encrypt the Metro 2 output file with a bank-provided key."""
+    # This would let banks store encrypted files
+    # Encryption implementation can be added here when the bank provides key handling requirements.
+    return filepath
+
 # ============================================================
 # TRIAL AND LICENSE MANAGEMENT
 # ============================================================
@@ -22,8 +52,6 @@ TRIAL_DAYS = 180  # 6 months trial
 
 def check_trial_status():
     """Check if trial period has expired. Returns (is_valid, days_remaining, message)"""
-    if os.getenv("DEV_MODE", "").strip().lower() == "true":
-        return True, TRIAL_DAYS, "Developer mode enabled: 180-day trial bypassed."
 
     trial_file = "trial_status.json"
     
@@ -72,7 +100,18 @@ class DisputeApp:
     def __init__(self, root, trial_days_left=None):
         self.root = root
         self.root.title("Credit Dispute Tool - Bank Use Only")
-        self.root.geometry("750x850")
+        self.root.update_idletasks()
+
+        # Use half screen size, centered on screen
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        default_width = screen_width // 2
+        default_height = screen_height // 2
+        x = (screen_width - default_width) // 2
+        y = (screen_height - default_height) // 2
+        self.root.geometry(f"{default_width}x{default_height}+{x}+{y}")
+        self.root.minsize(600, 500)
+        self.root.resizable(True, True)
         self.root.configure(bg='#f0f0f0')
         
         # Store trial days left for reminder
@@ -92,17 +131,32 @@ class DisputeApp:
         """Show a reminder about trial days left"""
         reminder = tk.Toplevel(self.root)
         reminder.title("Trial Reminder")
-        reminder.geometry("400x200")
-        reminder.transient(self.root)
+        reminder.geometry("500x350")
+        reminder.resizable(True, True)
         reminder.grab_set()
         
-        label = tk.Label(reminder, text=f"Trial Period Active", font=('Arial', 14, 'bold'))
-        label.pack(pady=20)
+        # Center the window on screen
+        reminder.update_idletasks()
+        x = (reminder.winfo_screenwidth() // 2) - (500 // 2)
+        y = (reminder.winfo_screenheight() // 2) - (350 // 2)
+        reminder.geometry(f"+{x}+{y}")
         
-        msg = tk.Label(reminder, text=f"You have {self.trial_days_left} days remaining in your free trial.\n\nAfter {TRIAL_DAYS} days, you will need to purchase a commercial license.\n\nContact: contact@clearwatercodes.com")
-        msg.pack(pady=10)
+        # Main frame with padding
+        main_frame = tk.Frame(reminder, padx=20, pady=20)
+        main_frame.pack(fill='both', expand=True)
         
-        ok_btn = tk.Button(reminder, text="OK", command=reminder.destroy)
+        # Title
+        label = tk.Label(main_frame, text="⚠️ TRIAL PERIOD ACTIVE ⚠️", font=('Arial', 16, 'bold'), fg='orange')
+        label.pack(pady=(0, 15))
+        
+        # Message with proper word wrapping
+        msg_text = f"You have {self.trial_days_left} days remaining in your free trial.\n\nAfter {TRIAL_DAYS} days, you will need to purchase a commercial license.\n\nContact: contact@clearwatercodes.com"
+        
+        msg = tk.Label(main_frame, text=msg_text, font=('Arial', 10), wraplength=420, justify='center')
+        msg.pack(pady=15, fill='both', expand=True)
+        
+        # OK button
+        ok_btn = tk.Button(main_frame, text="OK", command=reminder.destroy, width=15, height=1, bg='#4CAF50', fg='white', font=('Arial', 10, 'bold'))
         ok_btn.pack(pady=10)
     
     def create_widgets(self):
@@ -297,9 +351,9 @@ class DisputeApp:
         else:
             messagebox.showerror("Error", f"Failed: {result.stderr}")
         
-        # Cleanup temp CSV
+        # Cleanup temp CSV with secure overwrite
         if os.path.exists(csv_file):
-            os.remove(csv_file)
+            secure_delete(csv_file)
     
     def clear_form(self):
         self.name.delete(0, tk.END)

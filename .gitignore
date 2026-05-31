@@ -12,8 +12,15 @@ output*
 *.dat
 *.csv
 *.log
+audit.log
 trial_status.json
 license.key
+
+# Secrets & credentials (NEVER commit these)
+.env
+.env.local
+.env.*.local
+*.key
 
 # IDE
 .vscode/
@@ -24,3 +31,15 @@ license.key
 # OS
 .DS_Store
 Thumbs.db
+
+# Generated output files
+test_output*
+examples/generated_*
+examples/*_report.*
+examples/sample_letters/
+examples/test_notify_letters/
+*.dat
+*.csv
+status.example
+output/
+

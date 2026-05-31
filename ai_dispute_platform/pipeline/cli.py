@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import os
 import sys
 import traceback
 from pathlib import Path
@@ -12,7 +13,11 @@ from ai_dispute_platform.pipeline.notification import EmailNotifier
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="AI Credit Dispute Automation Pipeline")
+    parser = argparse.ArgumentParser(
+        description="AI Credit Dispute Automation Pipeline",
+        epilog="SMTP credentials should be provided via environment variables: "
+               "SMTP_PASSWORD, SMTP_USER, SMTP_SERVER, SMTP_PORT, SMTP_SENDER"
+    )
     parser.add_argument("--pdf", default=None, help="Path to the input PDF credit report")
     parser.add_argument("--output", default=None, help="Output Metro 2 file path")
     parser.add_argument("--input", default=None, help="Existing CSV or Metro 2 file for report-only mode")
@@ -21,11 +26,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--once", action="store_true", help="Process existing files once and exit when watching")
     parser.add_argument("--notify", default=None, help="Email address to notify when processing completes")
     parser.add_argument("--notify-on-error-only", action="store_true", help="Only send email notifications when processing fails")
-    parser.add_argument("--smtp-server", default=None, help="SMTP server hostname")
+    parser.add_argument("--smtp-server", default=None, help="SMTP server hostname (or use SMTP_SERVER env var)")
     parser.add_argument("--smtp-port", type=int, default=587, help="SMTP server port")
-    parser.add_argument("--smtp-user", default=None, help="SMTP username")
-    parser.add_argument("--smtp-password", default=None, help="SMTP password")
-    parser.add_argument("--smtp-sender", default=None, help="From email address for SMTP notifications")
+    parser.add_argument("--smtp-user", default=None, help="SMTP username (or use SMTP_USER env var)")
+    parser.add_argument("--smtp-sender", default=None, help="From email address for SMTP notifications (or use SMTP_SENDER env var)")
     parser.add_argument("--bank", default="Bank Customer", help="Bank name written into the Metro 2 header")
     parser.add_argument("--preparer", default="AI Credit Dispute Platform", help="Preparer name")
     parser.add_argument("--csv-output", default=None, help="Optional CSV file path for intermediate dispute rows")
@@ -44,14 +48,21 @@ def main(argv=None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
+    # Get SMTP credentials from environment variables (secure - not in command-line args)
+    smtp_password = os.environ.get('SMTP_PASSWORD')
+    smtp_server = args.smtp_server or os.environ.get('SMTP_SERVER')
+    smtp_user = args.smtp_user or os.environ.get('SMTP_USER')
+    smtp_port = args.smtp_port or int(os.environ.get('SMTP_PORT', '587'))
+    smtp_sender = args.smtp_sender or os.environ.get('SMTP_SENDER')
+
     pipeline = DisputePipeline(bank_name=args.bank, preparer=args.preparer)
     notifier = EmailNotifier(
         recipient=args.notify,
-        smtp_server=args.smtp_server,
-        smtp_port=args.smtp_port,
-        smtp_user=args.smtp_user,
-        smtp_password=args.smtp_password,
-        smtp_sender=args.smtp_sender,
+        smtp_server=smtp_server,
+        smtp_port=smtp_port,
+        smtp_user=smtp_user,
+        smtp_password=smtp_password,
+        smtp_sender=smtp_sender,
     )
 
     if args.report_only:
